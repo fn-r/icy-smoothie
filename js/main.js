@@ -5,12 +5,16 @@ const swiper = new Swiper(".mySwiper", {
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
-      },
+    },
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-      },
-    observer: true
+    },
+    observer: true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
 });
 
 function getDrinkList() {
@@ -28,10 +32,11 @@ function getDrinkList() {
 
     fetch(link)
         .then((res) => res.json())
-        .then((data) =>{
+        .then((data) => {
             data.drinks.forEach((drink) => {
                 wrapper.innerHTML += setSwiperSlide(drink)
-        })})
+            })
+        })
     swiper.loopDestroy()
     setTimeout(() => {
         swiper.loopCreate()
