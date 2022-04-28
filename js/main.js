@@ -18,12 +18,34 @@ const swiper = new Swiper(".mySwiper", {
 });
 
 function getDrinkList() {
-    function setSwiperSlide(drink) {
-        let slide = `
-        <div class="swiper-slide" style="background:url(${drink.strDrinkThumb});">
-            ${drink.strDrink}
-        </div>
-        `
+    function createElement(elem, classes = [], props = {}, ...styles) {
+        const el = document.createElement(elem)
+        classes.forEach(c => {el.className = c})
+        
+        for (prop in props) {
+            el[prop] = props[prop]
+        }
+
+        styles.forEach(style => {
+            style = style.split(": ")
+            el.style[style[0]] = style[1]
+        })
+        return el
+    }
+
+    function setSwiperSlide(drink, i) {
+        const els = [
+            createElement('h3', ['drink-data-name'], {innerText: drink.strDrink}),
+            createElement('p', ['drink-data-p']),
+        ]
+
+        const info = createElement('section', ['slide-info'])
+        els.forEach(el => info.append(el))
+
+        const slide = createElement('section', ['swiper-slide'], {},
+            `background-image: url(${drink.strDrinkThumb}`,
+            'background-size: cover')
+        slide.append(info)
         return slide
     }
 
@@ -34,14 +56,15 @@ function getDrinkList() {
         .then((res) => res.json())
         .then((data) => {
             data.drinks.forEach((drink) => {
-                wrapper.innerHTML += setSwiperSlide(drink)
+                wrapper.append(setSwiperSlide(drink))
             })
         })
-    swiper.loopDestroy()
+}
+
+getDrinkList()
+
+swiper.loopDestroy()
     setTimeout(() => {
         swiper.loopCreate()
     }, 1000)
     swiper.activeIndex = 1
-}
-
-getDrinkList()

@@ -1,9 +1,23 @@
-html,
-body {
-    position: relative;
-    height: 100%;
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
 }
 
+/******************************************
+  /* LAYOUT
+  /*******************************************/
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+/******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
 body {
     background: #eee;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -11,42 +25,121 @@ body {
     color: #000;
     margin: 0;
     padding: 0;
-}
-
-body {
-    background: #fff;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-}
-
-body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.one, .two, .three {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+.one {
+    background-color: aquamarine;
+}
+
+.one h1 {
+    font-size: 5rem;
+}
+
+.two {
+    flex-direction: column;
+    background: lightcoral;
+    position: relative;
+width: 100vw;height: 100vh;}
+
+.three {
+    background-color: darkcyan;
+}
+
+.three h2 {
+    font-size: 5rem;
 }
 
 .swiper {
-    width: 700px;
+    width: 500px;
     height: 700px;
 }
 
 .swiper-slide {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     border-radius: 18px;
     font-size: 22px;
     font-weight: bold;
     color: #fff;
+    flex-direction: column;
+}
+
+.slide-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background: rgba(0, 0, 0, 0.35);
+    width: 100%;
+}
+
+.slide-info h3 {
+    text-align: center;
+}
+
+.swiper-button-prev {
+    left: 20%;
+}
+
+.swiper-button-next {
+    right: 20%;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    padding: 20px;
+}
+
+.swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,20px));
+    height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,20px));
+}
+
+/* Default styles first then media queries */
+@media screen and (max-width: 1400px) {
+    
+}
+
+@media screen and (max-width: 1000px) {
+    .swiper-button-prev {
+        left: 2%;
+    }
+    
+    .swiper-button-next {
+        right: 2%;
+    }
+}
+
+@media screen and (max-width: 600px)  {
+    .swiper {
+        width: 400px;
+        height: 600px;
+    }
+
+    .swiper-button-prev {
+        display: none;
+    }
+    
+    .swiper-button-next {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px)  {
+    .swiper {
+        width: 200px;
+        height: 300px;
+    }    
 }
