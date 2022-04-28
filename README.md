@@ -12,7 +12,7 @@
 Shows you some eye-catching and delicious drinks.
 
 <a target="_blank" href="https://farahn.netlify.app/">
-    <img src="https://github.com/fn-r/portfolio/blob/main/images/gif/passwrap.gif" width="100%" alt="Passwrap"/>
+    <img src="https://github.com/fn-r/portfolio/blob/main/images/gif/icy-smoothie.gif" width="100%" alt="Icy Smoothie"/>
 </a>
 
 ## Tech Stack: ![HTML5 BADGE](https://img.shields.io/static/v1?label=|&message=HTML5&color=23555f&style=plastic&logo=html5) ![CSS BADGE](https://img.shields.io/static/v1?label=|&message=CSS3&color=285f65&style=plastic&logo=css3) ![JAVASCRIPT BADGE](https://img.shields.io/static/v1?label=|&message=JAVASCRIPT&color=3c7f5d&style=plastic&logo=javascript)
